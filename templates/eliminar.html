@@ -1,0 +1,12 @@
+{% extends "listas.html" %}
+
+{% block cuerpo %}
+<p>¿Estas seguro de que quieres borrar esta tarea?</p>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.tittle }}
+    <input type="submit" name="editar tarea_tarea" value="Eliminar Tarea">
+</form>
+<a href="/">Regresar a la pagina principal</a>
+
+{% endblock %}

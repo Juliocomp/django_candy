@@ -1,4 +1,4 @@
-"""CandyLists URL Configuration
+"""Dark_light URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -13,9 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-
+from django.urls import path, include
+from listas.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('', Vista_tareas, name="home"),
+    path('edicion/<str:primary_key>/', Vista_edicion, name="edicion"),
+    path('eliminar/<str:primary_key>/', Vista_eliminar, name="eliminar"),
+    path('crear/', Vista_crear, name="crear"),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

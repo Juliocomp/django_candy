@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            {% load static %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{% static 'css/main.css' %}">
+            <title>Dark</title>
+        </head>
+        <body>
+            {% block cuerpo %}
+            
+            <header>Buenos días satán, estas son tus tareas</header>
+            <a href="crear/">Agregar nueva tarea</a>
+            <section class="basic_grid">
+                {% for tarea in tareas %}
+                <div class="card">
+                    <p>{{ tarea }}</p>
+                    <a href="/edicion/{{ tarea.id }}">Ver tarea</a>
+                    <a href="/eliminar/{{ tarea.id }}">Eliminar</a>
+                    
+                </div>
+            {% endfor %}
+            </section>
+            {% endblock %}
+        </body>
+    </html>

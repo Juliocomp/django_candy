@@ -1,0 +1,15 @@
+{% extends "listas.html" %}
+
+{% block cuerpo %}
+<div class="small_header">¡Editemos tus tareas!</div>
+
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="editar tarea_tarea" value="Editar Tarea">
+</form>
+<a href="/">Regresar a la pagina principal</a>
+
+
+{% endblock %}

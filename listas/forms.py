@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from models import Tarea_ind
+from .models import Tarea_ind
 
 
 class Tarea_form(forms.ModelForm):
